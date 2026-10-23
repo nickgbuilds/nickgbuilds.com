@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minecraft Server with Automated Backups | Nick Builds</title>
+  <meta name="description" content="TrueNAS-hosted Minecraft server with ZFS snapshots every 6 hours, 2-week retention, and local replication to a backup pool.">
+  <link rel="canonical" href="https://nickgbuilds.com/build-log/minecraft-server-backups/">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="sitemap" href="/sitemap.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nickgbuilds.com/build-log/minecraft-server-backups/">
+  <meta property="og:title" content="Minecraft Server with Automated Backups | Nick Builds">
+  <meta property="og:description" content="TrueNAS-hosted Minecraft server with ZFS snapshots every 6 hours, 2-week retention, and local replication to a backup pool.">
+  <meta property="og:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Minecraft Server with Automated Backups | Nick Builds">
+  <meta name="twitter:description" content="TrueNAS-hosted Minecraft server with ZFS snapshots every 6 hours, 2-week retention, and local replication to a backup pool.">
+  <meta name="twitter:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Apply the saved theme before the page draws so it doesn't flash -->
+  <script>
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">NICKGBUILDS</a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/build-log/" class="nav-link" aria-current="page">Build Log</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark/light mode">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line class="bar-top" x1="3" y1="6" x2="21" y2="6" />
+            <line class="bar-mid" x1="3" y1="12" x2="21" y2="12" />
+            <line class="bar-bot" x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+      <a href="/projects/" class="nav-link">Projects</a>
+      <a href="/build-log/" class="nav-link" aria-current="page">Build Log</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="container page-content">
+      <article>
+        <header class="project-header">
+          <a href="/build-log/" class="mono" style="margin-bottom: var(--space-md); display: inline-block;">&larr; Build Log</a>
+          <h1>Minecraft Server with Automated Backups</h1>
+          <div class="project-meta">
+            <span class="project-meta-item"><strong>Status:</strong> complete</span>
+            <time class="project-meta-item" datetime="2024-08-10">August 10, 2024</time>
+          </div>
+          <div class="tag-list">
+            <span class="tag">TrueNAS</span>
+            <span class="tag">Minecraft</span>
+            <span class="tag">ZFS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Telegram Bot</span>
+          </div>
+        </header>
+
+        <div class="prose">
+          <h2>What It Is</h2>
+          <p>A <strong>Minecraft Java Edition</strong> server running on TrueNAS, with automated ZFS snapshot backups every 6 hours. The world data replicates to a separate backup pool, so a bad update or world corruption doesn’t mean starting over.</p>
+
+          <h2>Backup Strategy</h2>
+          <p>ZFS makes this straightforward:</p>
+          <ul>
+            <li><strong>Snapshot frequency</strong>: Every 6 hours (more aggressive than the daily schedule on other datasets, because Minecraft worlds change fast)</li>
+            <li><strong>Retention</strong>: 2-week rolling window</li>
+            <li><strong>Replication</strong>: Local replication to the dedicated backup pool on separate physical drives</li>
+            <li><strong>Recovery</strong>: Roll back to any snapshot within the retention window</li>
+          </ul>
+          <p>The snapshots are recursive, so they capture the full dataset including server configs, plugins, and world data in a consistent state.</p>
+
+          <h2>Why It Matters</h2>
+          <p>Anyone who’s run a Minecraft server knows the pain of a corrupted world. ZFS snapshots are atomic and copy-on-write, so they capture a consistent point-in-time state even if the server is actively writing chunks. Rolling back is a single command, not a “restore from last night’s tar.gz and hope nothing is missing” situation.</p>
+
+          <h2>Deployment</h2>
+          <p>The server runs in a Docker container on TrueNAS. The world data lives on a ZFS dataset that’s separate from the container itself, so the container can be rebuilt, updated, or replaced without touching the world.</p>
+          <p>Server properties, whitelist, and ops files are bind-mounted from the dataset into the container.</p>
+
+          <h2>Future Plans</h2>
+          <ul>
+            <li><strong>Telegram notifications</strong>: Alert on backup completion/failure using the homelab Telegram bot</li>
+            <li><strong>Player activity logging</strong>: Track when players join/leave for usage-based resource allocation</li>
+            <li><strong>Automatic server updates</strong>: Pull latest server jar on container rebuild</li>
+          </ul>
+          <!-- TODO: Add player count, world size, and specific Minecraft version details -->
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-text">&copy; <span id="year">2026</span> Nick Builds. Self-hosted on TrueNAS.</p>
+      <div class="footer-links">
+        <a href="https://github.com/nickgbuilds" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/nickolas-siqueira-gabrialovitch/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

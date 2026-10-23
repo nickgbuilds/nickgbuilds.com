@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Contact | Nick Builds</title>
+  <meta name="description" content="Get in touch with questions, collaboration ideas, or just to say hello.">
+  <link rel="canonical" href="https://nickgbuilds.com/contact/">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="sitemap" href="/sitemap.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nickgbuilds.com/contact/">
+  <meta property="og:title" content="Contact | Nick Builds">
+  <meta property="og:description" content="Get in touch with questions, collaboration ideas, or just to say hello.">
+  <meta property="og:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact | Nick Builds">
+  <meta name="twitter:description" content="Get in touch with questions, collaboration ideas, or just to say hello.">
+  <meta name="twitter:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Apply the saved theme before the page draws so it doesn't flash -->
+  <script>
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">NICKGBUILDS</a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/build-log/" class="nav-link">Build Log</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link" aria-current="page">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark/light mode">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line class="bar-top" x1="3" y1="6" x2="21" y2="6" />
+            <line class="bar-mid" x1="3" y1="12" x2="21" y2="12" />
+            <line class="bar-bot" x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+      <a href="/projects/" class="nav-link">Projects</a>
+      <a href="/build-log/" class="nav-link">Build Log</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="container page-content">
+      <div class="page-title">
+        <h1>Contact</h1>
+        <p>Have a question, want to collaborate, or just want to say hello? Drop me a message.</p>
+      </div>
+
+      <form class="contact-form" id="contact-form" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" required></textarea>
+        </div>
+
+        <!-- Cloudflare Turnstile goes here once the Worker is set up:
+             <div class="cf-turnstile" data-sitekey="YOUR_SITE_KEY"></div>
+             (also needs the Turnstile script tag in the head) -->
+        <div id="turnstile-placeholder"></div>
+
+        <button class="btn btn-primary" type="submit">Send Message</button>
+
+        <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+
+        <p class="form-note">
+          Your information is used only to respond to your message. It is not shared, sold, or stored beyond what's needed to reply.
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-text">&copy; <span id="year">2026</span> Nick Builds. Self-hosted on TrueNAS.</p>
+      <div class="footer-links">
+        <a href="https://github.com/nickgbuilds" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/nickolas-siqueira-gabrialovitch/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

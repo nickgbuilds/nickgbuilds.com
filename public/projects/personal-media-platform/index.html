@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Personal Media Platform | Nick Builds</title>
+  <meta name="description" content="Self-hosted photo and video management replacing Google Photos and iCloud, with private mesh VPN access and automated ZFS backups.">
+  <link rel="canonical" href="https://nickgbuilds.com/projects/personal-media-platform/">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="sitemap" href="/sitemap.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nickgbuilds.com/projects/personal-media-platform/">
+  <meta property="og:title" content="Personal Media Platform | Nick Builds">
+  <meta property="og:description" content="Self-hosted photo and video management replacing Google Photos and iCloud, with private mesh VPN access and automated ZFS backups.">
+  <meta property="og:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Personal Media Platform | Nick Builds">
+  <meta name="twitter:description" content="Self-hosted photo and video management replacing Google Photos and iCloud, with private mesh VPN access and automated ZFS backups.">
+  <meta name="twitter:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Apply the saved theme before the page draws so it doesn't flash -->
+  <script>
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">NICKGBUILDS</a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="/projects/" class="nav-link" aria-current="page">Projects</a>
+        <a href="/build-log/" class="nav-link">Build Log</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark/light mode">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line class="bar-top" x1="3" y1="6" x2="21" y2="6" />
+            <line class="bar-mid" x1="3" y1="12" x2="21" y2="12" />
+            <line class="bar-bot" x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+      <a href="/projects/" class="nav-link" aria-current="page">Projects</a>
+      <a href="/build-log/" class="nav-link">Build Log</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div class="container page-content">
+      <article>
+        <header class="project-header">
+          <h1>Personal Media Platform</h1>
+          <div class="project-meta">
+            <span class="project-meta-item"><strong>Status:</strong> in-progress</span>
+            <span class="project-meta-item"><strong>Started:</strong> June 2024</span>
+          </div>
+          <div class="tag-list">
+            <span class="tag">TrueNAS</span>
+            <span class="tag">Immich</span>
+            <span class="tag">ZFS</span>
+            <span class="tag">Tailscale</span>
+            <span class="tag">Docker</span>
+          </div>
+        </header>
+
+        <div class="prose">
+          <h2>Goal</h2>
+          <p>Replace cloud photo and video storage subscriptions (Google Photos, iCloud) with a self-hosted, privately controlled media platform. Full ownership of the data, no recurring subscription costs, no third-party scanning or compression.</p>
+
+          <h2>Architecture</h2>
+          <p>The platform runs as a containerized application on TrueNAS Community Edition. Remote access from phones, laptops, and family devices is handled by Tailscale, a mesh VPN that creates a private overlay network. No ports are exposed to the public internet, no router port forwarding is required, and no public DNS records point to the server.</p>
+
+          <h2>Hardware &amp; Software Stack</h2>
+          <ul>
+            <li><strong>Server</strong>: Intel i5-6500, 32 GB RAM, TrueNAS Community Edition</li>
+            <li><strong>Storage</strong>: Dedicated pool (~1.8 TiB) for the Immich photo/video library; separate ~4.5 TiB backup pool for replication</li>
+            <li><strong>Application</strong>: Immich, self-hosted photo/video management with machine learning features (facial recognition, smart search, auto-tagging)</li>
+            <li><strong>Network Access</strong>: Tailscale mesh VPN for secure remote access</li>
+          </ul>
+          <!-- TODO: Verify and add exact chassis model, drive models/sizes, and TrueNAS version -->
+
+          <h2>Implementation</h2>
+          <p>The initial migration started with <strong>Google Takeout</strong>, exporting the full Google Photos library and importing it into Immich. The Immich container app runs on TrueNAS, with its library stored on a dedicated ZFS dataset.</p>
+          <p>Mobile access is configured through the Immich app on iOS and Android, with automatic photo backup enabled over the Tailscale network. The app connects to the server using its Tailscale IP. No public URL, no certificate management.</p>
+          <p>Family account setup is in progress. The goal is shared albums and individual libraries for household members.</p>
+          <!-- TODO: Document the exact Google Takeout import process, any gotchas with metadata preservation, and family onboarding steps -->
+
+          <h2>Secure Access</h2>
+          <p>All remote access goes through <strong>Tailscale</strong>, a WireGuard-based mesh VPN. Each device (phone, laptop, desktop) joins the Tailscale network and can reach the Immich server directly over an encrypted tunnel.</p>
+          <p>What this means in practice:</p>
+          <ul>
+            <li><strong>No exposed ports</strong>: the server has no services listening on its public IP</li>
+            <li><strong>No port forwarding</strong>: the router doesn’t need any special configuration</li>
+            <li><strong>No public DNS</strong>: there’s no A record or subdomain pointing to a home IP address</li>
+            <li><strong>End-to-end encryption</strong>: WireGuard tunnels between devices and the server</li>
+          </ul>
+          <p>The server is accessible from anywhere with a Tailscale client, but completely invisible to the public internet.</p>
+
+          <h2>Backup &amp; Recovery</h2>
+          <p>Backups use <strong>ZFS snapshots</strong>, a built-in feature of the TrueNAS filesystem.</p>
+          <ul>
+            <li><strong>Schedule</strong>: Daily recursive snapshots at midnight</li>
+            <li><strong>Retention</strong>: 2-week rolling window (14 snapshots)</li>
+            <li><strong>Replication</strong>: Local replication to a dedicated backup pool on separate drives</li>
+            <li><strong>Library size</strong>: ~236 GiB with a matching replica on the backup pool</li>
+          </ul>
+          <p>ZFS snapshots are copy-on-write and space-efficient. They only consume space for data that has changed since the last snapshot. The full 2-week history adds minimal overhead.</p>
+          <p><strong>Honest gaps</strong>:</p>
+          <ul>
+            <li>Restore testing has not been completed yet. The snapshots are verified to exist and replicate, but a full restore-to-new-dataset test is planned.</li>
+            <li>Offsite backup is not yet configured. If the physical server fails (fire, theft, hardware failure), the backup pool on the same machine doesn’t help. Cloud or remote replication is a future priority.</li>
+          </ul>
+
+          <h2>Lessons Learned</h2>
+          <!-- TODO: write this up once it's been running longer (what broke, what I'd do differently,
+               Immich's ML features, how the family took the switch from Google Photos) -->
+          <p><em>This section will be updated with real reflections as the system matures.</em></p>
+
+          <h2>Future Improvements</h2>
+          <ul>
+            <li><strong>Offsite backup</strong>: Cloud replication (Backblaze B2 or similar) or replication to a second physical location</li>
+            <li><strong>Restore testing</strong>: Documented disaster recovery procedure with verified restore steps</li>
+            <li><strong>Family onboarding</strong>: Complete shared album setup and individual library configuration for household members</li>
+            <li><strong>Hardware redundancy</strong>: Consider a second server or at minimum a UPS for clean shutdowns during power outages</li>
+            <li><strong>Monitoring</strong>: Integrate with the Pico OLED monitor or Telegram bot for backup failure alerts</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-text">&copy; <span id="year">2026</span> Nick Builds. Self-hosted on TrueNAS.</p>
+      <div class="footer-links">
+        <a href="https://github.com/nickgbuilds" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/nickolas-siqueira-gabrialovitch/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Nick Builds | Software, Networking &amp; Self-Hosted Systems</title>
+  <meta name="description" content="Nick builds software, networking, and self-hosted systems from a real homelab.">
+  <link rel="canonical" href="https://nickgbuilds.com/">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="sitemap" href="/sitemap.xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nickgbuilds.com/">
+  <meta property="og:title" content="Nick Builds | Software, Networking &amp; Self-Hosted Systems">
+  <meta property="og:description" content="Nick builds software, networking, and self-hosted systems from a real homelab.">
+  <meta property="og:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nick Builds | Software, Networking &amp; Self-Hosted Systems">
+  <meta name="twitter:description" content="Nick builds software, networking, and self-hosted systems from a real homelab.">
+  <meta name="twitter:image" content="https://nickgbuilds.com/og-image.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Apply the saved theme before the page draws so it doesn't flash -->
+  <script>
+    var savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  </script>
+
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/main.js" defer></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="site-logo">NICKGBUILDS</a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/build-log/" class="nav-link">Build Log</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark/light mode">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-mobile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line class="bar-top" x1="3" y1="6" x2="21" y2="6" />
+            <line class="bar-mid" x1="3" y1="12" x2="21" y2="12" />
+            <line class="bar-bot" x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+      <a href="/projects/" class="nav-link">Projects</a>
+      <a href="/build-log/" class="nav-link">Build Log</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <img src="/images/nick.jpg" alt="Photo of Nick" class="hero-headshot" width="180" height="180" loading="eager">
+          <div>
+            <h1 class="hero-name">Nick</h1>
+            <p class="hero-tagline">Software, networking, and self-hosted systems</p>
+            <div class="hero-links">
+              <a href="https://github.com/nickgbuilds" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="/contact/" class="btn btn-secondary">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" style="padding-bottom: var(--space-3xl);">
+      <div class="section-heading">
+        <h2>Featured Project</h2>
+        <a href="/projects/" class="section-link">All projects &rarr;</a>
+      </div>
+      <a href="/projects/personal-media-platform/" class="project-card">
+        <span class="project-card-status">in-progress</span>
+        <h3>Personal Media Platform</h3>
+        <p>Self-hosted photo and video management replacing Google Photos and iCloud, with private mesh VPN access and automated ZFS backups.</p>
+        <div class="tag-list">
+          <span class="tag">TrueNAS</span>
+          <span class="tag">Immich</span>
+          <span class="tag">ZFS</span>
+          <span class="tag">Tailscale</span>
+          <span class="tag">Docker</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="container" style="padding-bottom: var(--space-4xl);">
+      <div class="section-heading">
+        <h2>Recent Builds</h2>
+        <a href="/build-log/" class="section-link">All entries &rarr;</a>
+      </div>
+      <div class="log-list">
+          <a href="/build-log/pico-oled-monitor/" class="log-card">
+            <div class="log-card-meta">
+              <time class="log-card-date" datetime="2024-09-15">Sep 15, 2024</time>
+              <span class="log-card-status" data-status="in-progress">in-progress</span>
+            </div>
+            <h3>Pico OLED Hardware Monitor</h3>
+            <p>A Raspberry Pi Pico W pulling live server metrics from a Flask bridge and displaying them on a tiny OLED screen.</p>
+            <div class="tag-list">
+              <span class="tag">Raspberry Pi Pico W</span>
+              <span class="tag">MicroPython</span>
+              <span class="tag">SSD1306 OLED</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Ubuntu VM</span>
+            </div>
+          </a>
+
+          <a href="/build-log/minecraft-server-backups/" class="log-card">
+            <div class="log-card-meta">
+              <time class="log-card-date" datetime="2024-08-10">Aug 10, 2024</time>
+              <span class="log-card-status" data-status="complete">complete</span>
+            </div>
+            <h3>Minecraft Server with Automated Backups</h3>
+            <p>TrueNAS-hosted Minecraft server with ZFS snapshots every 6 hours, 2-week retention, and local replication to a backup pool.</p>
+            <div class="tag-list">
+              <span class="tag">TrueNAS</span>
+              <span class="tag">Minecraft</span>
+              <span class="tag">ZFS</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Telegram Bot</span>
+            </div>
+          </a>
+
+          <a href="/build-log/jellyfin-media-server/" class="log-card">
+            <div class="log-card-meta">
+              <time class="log-card-date" datetime="2024-07-20">Jul 20, 2024</time>
+              <span class="log-card-status" data-status="complete">complete</span>
+            </div>
+            <h3>Jellyfin Media Server</h3>
+            <p>Self-hosted media streaming on TrueNAS with Roku, phone, and PC clients, serving movies and TV from ZFS datasets.</p>
+            <div class="tag-list">
+              <span class="tag">TrueNAS</span>
+              <span class="tag">Jellyfin</span>
+              <span class="tag">ZFS</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Roku</span>
+            </div>
+          </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-text">&copy; <span id="year">2026</span> Nick Builds. Self-hosted on TrueNAS.</p>
+      <div class="footer-links">
+        <a href="https://github.com/nickgbuilds" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/nickolas-siqueira-gabrialovitch/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
